@@ -1,23 +1,39 @@
 # C--Live-Project
 
 ## Introduction
-During my 2 week internship for Prosper IT consulting through The Tech Academy, I worked with my peers in a team developing a full scale MVC/MVVM Web Application in C#.  The team was tasked with building software designed for a theater company to manage its website content without needing any technical knowledge. Working on a legacy codebase was a great learning oppertunity for fixing bugs, cleaning up code, and adding requested features.  Here are the back end stories I was tasked with[back end stories](#back-end-stories).  Here are front end stories I was tasked with.[front end stories](#front-end-stories)  [skills](#other-skills-learned) 
+During my 2 week internship for Prosper IT consulting through The Tech Academy, I worked with my peers in a team developing a full scale MVC/MVVM Web Application in C#.  The team was tasked with building software designed for a theater company to manage its website content without needing any technical knowledge. Working on a legacy codebase was a great learning oppertunity for fixing bugs, cleaning up code, and adding requested features.  Here are the back end stories I was tasked with [back end stories](#back-end-stories).  Here are front end stories I was tasked with [front end stories](#front-end-stories)  [skills](#other-skills-learned) 
   
 Below are descriptions of the stories I worked on, along with code snippets and navigation links. I also have some full code files in this repo for the larger functionalities I implemented.
 
 
 ## Back End Stories
-* [Sorting Network Table](#sorting-network-table)
+* [Creat BlogPhoto model and CRUD pages](#creat-blogPhoto-model-and-CRUD-pages)
 * [Meetup API](#meetup-api)
 
 
 
 ### Creat BlogPhoto model and CRUD pages.
-This page had two tables, one as part of the view, and one was a partial view. My task was to make the table on the partial view sortable by several different catagories. I wanted to do this without reloading the page. 
-    
+Starting my part in the project, I needed to create a model and add it to the database named BlogPhoto that would represent all of the images used in the blog area of this project.  After the model was created I than scaffolded the CRUD pages.
+
+
+
+       
+        public class BlogPhoto
+    {
+        public int BlogPhotoId { get; set; }
+        public string Title { get; set; }
+        public byte[] Photo { get; set; }
+    }
+
+
+
+
  
 ### Photo Storage and Retrieval for BlogPhotos.  
-We want to have images for the BlogPhoto model.  To accomplish this, we want to allow users to upload files from their file system.  Then, in the controller, the uploaded image should be converted into a byte array (byte[]) and stored in the BlogPhoto table in the database.  The byte[] representing the photo should be able to be retrieved from the database and converted back into an image where it can be displayed on View.
+We want to have images for the BlogPhoto model.  To allow users to upload files from their file system.  Then, in the controller, the uploaded image should be converted into a byte array (byte[]) and stored in the BlogPhoto table in the database.  The byte[] representing the photo should be able to be retrieved from the database and converted back into an image where it can be displayed.
+
+
+
 
 Create a method in the BlogPhoto Controller that has a parameter for an uploaded photo and converts that photo into a byte[].  Add a new file input field to the Create and Edit Views so that images can be uploaded to the controller.  Use this method in the BlogPhotos Create and Edit methods to convert the uploaded image to a byte[].  Assign the byte[] to the BlogPhotos model being created or edited and save it to the database.
 
