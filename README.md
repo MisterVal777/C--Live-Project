@@ -1,16 +1,7 @@
 # C--Live-Project
 
 ## Introduction
-During my 2 week internship for Prosper IT consulting through The Tech Academy, I worked with my peers in a team developing a full scale MVC/MVVM Web Application in C#.  The team was tasked with building software designed for a theater company to manage its website content without needing any technical knowledge. Working on a legacy codebase was a great learning oppertunity for fixing bugs, cleaning up code, and adding requested features.  Here are the back end stories I was tasked with [back end stories](#back-end-stories).  Here are front end stories I was tasked with [front end stories](#front-end-stories)  [skills](#other-skills-learned) 
-  
-Below are descriptions of the stories I worked on, along with code snippets and navigation links. I also have some full code files in this repo for the larger functionalities I implemented.
-
-
-## Back End Stories
-* [Creat BlogPhoto model and CRUD pages](#creat-blogPhoto-model-and-CRUD-pages)
-* [Meetup API](#meetup-api)
-
-
+During my 2 week internship for Prosper IT consulting through The Tech Academy, I worked with my peers in a team developing a full scale MVC/MVVM Web Application in C#.  The team was tasked with building software designed for a theater company to manage its website content without needing any technical knowledge. Working on a legacy codebase was a great learning oppertunity for fixing bugs, cleaning up code, and adding requested features.  Here are the stories I was tasked with below.
 
 ### Creat BlogPhoto model and CRUD pages.
 Starting my part in the project, I needed to create a model and add it to the database named BlogPhoto that would represent all of the images used in the blog area of this project.  After the model was created I than scaffolded the CRUD pages.
@@ -92,16 +83,16 @@ My solution code here.
             return bytes;
         }
 
-### Style CRUD Pages Part 1: Style the Create and Edit Pages for BlogPhoto model.
-Custumer requirements.
-Header to display "Create BLog Photo".
-style the submit and BAck to List buttons.
-Add place holders in the input fields.
-Place the form in a centered container.
-When the user selects a file, display the file in the form so that the user can see the imade that is uploaded.
+### Style CRUD Pages Part 1: Style the Create and Edit Pages for BlogPhoto model.<br>
+Custumer requirements.<br>
+Header to display "Create BLog Photo".<br>
+style the submit and BAck to List buttons.<br>
+Add place holders in the input fields.<br>
+Place the form in a centered container.<br>
+When the user selects a file, display the file in the form so that the user can see the imade that is uploaded.<br>
 
 
-#Creat page
+#Creat page<br>
 
       <body style="background-color: #000000">
           <div class="blogphoto-create-h4container">
@@ -145,7 +136,7 @@ When the user selects a file, display the file in the form so that the user can 
           }
       </body>
 
-  #Edit Page
+  #Edit Page<br>
 
       <body style="background-color: #000000">
 
@@ -203,12 +194,12 @@ When the user selects a file, display the file in the form so that the user can 
         }
     </body>
 
-### Style CRUD Pages Part 2: Index Page for BlogPhoto
-#Custumer requirements.
-Use Boot-strap Card column layout.
-Images should have a subtle hover animation/transition.  Also should display the title of the photo.
-Add bootstrap badge-pill buttons.
-User should beable to click on the photo to go to the photo's details page.
+### Style CRUD Pages Part 2: Index Page for BlogPhoto<br>
+#Custumer requirements.<br>
+Use Boot-strap Card column layout.<br>
+Images should have a subtle hover animation/transition.  Also should display the title of the photo.<br>
+Add bootstrap badge-pill buttons.<br>
+User should beable to click on the photo to go to the photo's details page.<br>
 
     <style>
         .card-title {
@@ -280,13 +271,13 @@ User should beable to click on the photo to go to the photo's details page.
 
 
 
-### Style CRUD Pages Part 3: BlogPhoto Details & Delete Pages
-#Custumer requirements.
-Center the content on the page.
-Style the buttons with Font Awsome Icons.
+### Style CRUD Pages Part 3: BlogPhoto Details & Delete Pages<br>
+#Custumer requirements.<br>
+Center the content on the page.<br>
+Style the buttons with Font Awsome Icons.<br>
 
 
-#Details page.
+#Details page.<br>
 
     <style>
         .details-page {
@@ -371,7 +362,7 @@ Style the buttons with Font Awsome Icons.
         }
     </div>
 
-  #Delete Page.
+  #Delete Page.<br>
   
       <style>
         .delete-page {
@@ -462,15 +453,12 @@ Style the buttons with Font Awsome Icons.
  [Page Top](#live-project)*
 
 
-## Front End Stories
-* [Button Sizing Bug](#button-sizing-bug) [Front End Stories](#front-end-stories), [Back End Stories](#back-end-stories), [Other Skills](#other-skills-learned), [Page Top](#live-project)*
-
 ## Other Skills Learned
 * Working with a group of developers to identify front and back end bugs to the improve usability of an application
 * Improving project flow by communicating about who needs to check out which files for their current story
 * Learning new efficiencies from other developers by observing their workflow and asking questions  
-* Practice with team programming/pair programming when one developer runs into a bug they cannot solve
+* Practice with team programming/pair programming.
     
     
   
-*Jump to: [Front End Stories](#front-end-stories), [Back End Stories](#back-end-stories), [Other Skills](#other-skills-learned), [Page Top](#live-project)*
+*Jump to:[Page Top](#live-project)*
