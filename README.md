@@ -14,35 +14,95 @@ Below are descriptions of the stories I worked on, along with code snippets and 
 
 ### Creat BlogPhoto model and CRUD pages.
 Starting my part in the project, I needed to create a model and add it to the database named BlogPhoto that would represent all of the images used in the blog area of this project.  After the model was created I than scaffolded the CRUD pages.
-
-
-
-       
+  
         public class BlogPhoto
     {
         public int BlogPhotoId { get; set; }
         public string Title { get; set; }
         public byte[] Photo { get; set; }
     }
+CRUD views include create.cshtml delete.cshtml details.cshtml edit.cshtml index.cshtml.
 
 
-
-
- 
 ### Photo Storage and Retrieval for BlogPhotos.  
-We want to have images for the BlogPhoto model.  To allow users to upload files from their file system.  Then, in the controller, the uploaded image should be converted into a byte array (byte[]) and stored in the BlogPhoto table in the database.  The byte[] representing the photo should be able to be retrieved from the database and converted back into an image where it can be displayed.
+Story description- We want to have images for the BlogPhoto model.  To allow users to upload files from their file system.  Then in the controller, the uploaded image should be converted into a byte array (byte[]) and stored in the BlogPhoto table in the database.  The byte[] representing the photo should be able to be retrieved from the database and converted back into an image where it can be displayed.
+My solution code here.
 
+      public ActionResult Create(BlogPhoto blogPhoto, HttpPostedFileBase ImageFile)
+        {
+            if (ModelState.IsValid)
+            {
+                if (ImageFile != null)
+                {
+                    blogPhoto.Photo = ConvertToBytes(ImageFile);
+                }
 
+                db.BlogPhotos.Add(blogPhoto);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
 
+            return View(blogPhoto);
+        }
 
-Create a method in the BlogPhoto Controller that has a parameter for an uploaded photo and converts that photo into a byte[].  Add a new file input field to the Create and Edit Views so that images can be uploaded to the controller.  Use this method in the BlogPhotos Create and Edit methods to convert the uploaded image to a byte[].  Assign the byte[] to the BlogPhotos model being created or edited and save it to the database.
+        // GET: Blog/BlogPhotos/Edit/5
+        public ActionResult Edit(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            BlogPhoto blogPhoto = db.BlogPhotos.Find(id);
+            if (blogPhoto == null)
+            {
+                return HttpNotFound();
+            }
+            return View(blogPhoto);
+        }
 
-There should also be a way to retrieve the byte[] from an entity in the BlogPhoto table.  Create a method in the BlogPhoto controller that accepts an Id.  This method should use the Id to find that BlogPhoto, get its stored byte[], and return the file of that converted photo.  Use this method to display the photos of BlogPhotos on all of the BlogPhotos CRUD pages.
+        // POST: Blog/BlogPhotos/Edit/5
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(BlogPhoto blogPhoto, HttpPostedFileBase ImageFile)
+        {
+            if (ModelState.IsValid)
+            {
+                if (ImageFile != null)
+                {
+                    blogPhoto.Photo = ConvertToBytes(ImageFile);
+                }
+
+                db.Entry(blogPhoto).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View(blogPhoto);
+        }
+
+      public byte[] ConvertToBytes(HttpPostedFileBase file)
+        {
+            byte[] bytes;
+            using (BinaryReader br = new BinaryReader(file.InputStream))
+            {
+                bytes = br.ReadBytes(file.ContentLength);
+            }
+            return bytes;
+        }
+
+### Style CRUD Pages Part 1: Style the Create and Edit Pages for BlogPhoto model.
+Custumer requirements.
+Header to display "Create BLog Photo"
+style the submit and BAck to List buttons,
+Add place holders in the input fields.
+
 
 
 ### Style CRUD Pages Part 2: Index Page for BlogPhoto
 
-### Style CRUD Pages Part 1: Style the Create and Edit Pages for BlogPhoto model
+
 
 ### Style CRUD Pages Part 3: BlogPhoto Details & Delete Pages
 
